@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import useStore from './store/counter';
 
 function App() {
+  const counter = useStore();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <nav>
+          <span>Learn Zustand</span>
+        </nav>
       </header>
+
+      <main>
+        <p>{counter.counter}</p>
+        <section>
+          <button onClick={counter.increase}>+</button>
+          <button onClick={counter.decrease}>-</button>
+        </section>
+      </main>
     </div>
   );
 }
